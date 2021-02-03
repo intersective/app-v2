@@ -15,7 +15,7 @@ export const environment = {
   stackUuid: '9c31655d-fb73-4ea7-8315-aa4c725b367e',
   intercomAppId: '',
   filestack: {
-    key: 'AO6F4C72uTPGRywaEijdLz',
+    key: '',
     s3Config: {
       location: 's3',
       container: 'practera-aus',
