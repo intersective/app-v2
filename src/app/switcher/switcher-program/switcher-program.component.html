@@ -16,6 +16,7 @@
             <clickable-item color="light" [lines]="'none'" [backgroundColor]="program.program.config.theme_color" [isSwitcherCard]="true">
               <ion-label class="subtitle-1">
                 {{ program.program.name }}
+                <ion-label *ngIf='program.experience.config.show_timeline_title'><em>{{ program.timeline.title }}</em></ion-label>
                 <!-- <ion-progress-bar *ngIf="program.progress !== undefined" [value]="program.progress"></ion-progress-bar> -->
               </ion-label>
               <!-- <ion-badge *ngIf="program.todoItems !== undefined" slot="end">{{ program.todoItems }}</ion-badge> -->

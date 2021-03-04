@@ -52,6 +52,7 @@ export interface Project {
 
 export interface Timeline {
   id: number;
+  title: string;
 }
 
 export interface Experience {
@@ -84,6 +85,9 @@ export class SwitcherService {
     const cdn = 'https://cdn.filestackcontent.com/resize=fit:crop,width:';
     let imagewidth = 600;
     programs.forEach(program => {
+      if (program.experience.config && typeof program.experience.config === 'string') {
+        program.experience.config = JSON.parse(program.experience.config);
+      }
       if (program.project.lead_image) {
         const imageId = program.project.lead_image.split('/').pop();
         if (!this.utils.isMobile()) {
