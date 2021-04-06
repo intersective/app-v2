@@ -31,7 +31,7 @@ export interface Category {
   order: number;
   preferences: Preference[];
 }
- 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -53,7 +53,8 @@ export class PreferenceService {
   }
 
   update(data) {
-    return this.request.put(`${APIs.preference}`, data);
+    // specify "app" to update only the app's preference setting
+    return this.request.put(`${APIs.preference}`, { app: data });
   }
 
   remove() {
