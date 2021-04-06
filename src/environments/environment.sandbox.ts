@@ -40,6 +40,10 @@ export const environment = {
   defaultCountryModel: 'AUS',
   intercom: false,
   goMobile: false,
+  lambdaServices: {
+    pusherBeamsAuth: 'https://pusher-api.sandbox.p2.practera.com/',
+    preferences: 'https://preferences-api.sandbox.p2.practera.com/'
+  },
 };
 
 /*
