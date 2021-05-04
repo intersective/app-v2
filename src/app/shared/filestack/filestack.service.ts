@@ -60,7 +60,6 @@ export class FilestackService {
     if (!this.filestack) {
       throw new Error('Filestack module not found.');
     }
-
     return this.filestack;
   }
 

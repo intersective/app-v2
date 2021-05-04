@@ -5,18 +5,18 @@
 </ion-header>
 <ion-content class="ion-padding" color="light">
   <ng-container *ngIf="utils.isMobile()">
-    <ion-item class="profile-info no-bg" lines="none" tabindex="0">
+    <ion-item class="profile-info no-bg" lines="none" >
       <ion-avatar class="profile-image" slot="start">
-        <img *ngIf="!imageUpdating" [src]="profile.image">
+        <img *ngIf="!imageUpdating" [src]="profile.image" tabindex="0" aria-label="profile image">
         <p *ngIf="imageUpdating" class="loading-icon"><ion-spinner name="bubbles"></ion-spinner></p>
         <file-stack
           [accept]="acceptFileTypes"
           [fileType]="'image'"
           [type]="'profileImage'"
-          (complete)="uploadProfileImage($event)"
+          (complete)="uploadProfileImage($even)"
         ></file-stack>
       </ion-avatar>
-      <ion-label>
+      <ion-label tabindex="0" aria-label="profile name">
         <ion-label class="headline-6" *ngIf="profile.name">
           {{profile.name}}
         </ion-label>
@@ -54,9 +54,9 @@
     <ion-grid>
       <ion-row>
         <ion-col size="3" class="support">
-          <div class="profile-info" tabindex="0">
+          <div class="profile-info">
             <ion-avatar class="profile-image" slot="start">
-              <img *ngIf="!imageUpdating" [src]="profile.image">
+              <img *ngIf="!imageUpdating" [src]="profile.image" tabindex="0"  aria-label="profile image">
               <p *ngIf="imageUpdating" class="loading-icon"><ion-spinner name="bubbles"></ion-spinner></p>
               <file-stack
                 [accept]="acceptFileTypes"
@@ -65,12 +65,14 @@
                 (complete)="uploadProfileImage($event)"
               ></file-stack>
             </ion-avatar>
-            <ion-label class="headline-6" *ngIf="profile.name">
-              {{profile.name}}
-            </ion-label>
-            <ion-label class="subtitle-1 gray-2" *ngIf="profile.email">
-              {{profile.email}}
-            </ion-label>
+            <div tabindex="0" aria-label="profile name">
+              <ion-label class="headline-6" *ngIf="profile.name">
+                {{profile.name}}
+              </ion-label>
+              <ion-label class="subtitle-1 gray-2" *ngIf="profile.email">
+                {{profile.email}}
+              </ion-label>
+            </div>  
           </div>
           <div class="ion-margin-top subtitle-1 support-wrapper" >
             <ion-button class="accessible-btn" role="button" aria-label="Email help button" tabindex="0" (click)="mailTo($event)" (keydown)="mailTo($event)">

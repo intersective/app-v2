@@ -46,7 +46,10 @@ export class FilestackComponent {
     private utils: UtilsService
   ) { }
 
-  async uploadFile() {
+  async uploadFile(event) {
+    if (event instanceof KeyboardEvent && event.key !== 'Enter' && event.key !== ' ') {
+      return;
+    }
     const s3Config = this.filestackService.getS3Config(this.fileType);
     const pickerOptions = {
       storeTo: s3Config,
@@ -111,7 +114,10 @@ export class FilestackComponent {
 
   }
 
-  cancelFileUpload() {
+  cancelFileUpload(event) {
+    if (event instanceof KeyboardEvent && event.key !== 'Enter' && event.key !== ' ') {
+      return;
+    }
     if (this.uploadToken) {
       this.uploadToken.cancel();
       this.isDroped = false;

@@ -1,20 +1,20 @@
 <ng-container [ngSwitch]="type">
   <ng-container *ngSwitchCase="'profileImage'">
-    <p class="upload-icon" (click)="uploadFile()">
+    <p class="upload-icon" (click)="uploadFile($event)" (keydown)="uploadFile($event)" tabindex="0" role="button" aria-dropeffect="upload file">
       <ion-icon name="camera-outline"></ion-icon>
     </p>
   </ng-container>
 
   <ng-container *ngSwitchDefault>
     <ng-container *ngIf="utils.isMobile()">
-      <ion-button size="small" class="upload-button" shape="round" (click)="uploadFile()" [disabled]="disabled">UPLOAD FILE</ion-button>
+      <ion-button size="small" class="upload-button" shape="round" tabindex="0" (click)="uploadFile($event)" (keydown)="uploadFile($event)" [disabled]="disabled">UPLOAD FILE</ion-button>
     </ng-container>
     <ng-container *ngIf="!utils.isMobile()">
       <div *ngIf="!isDroped" class="drop-zone" appDragAndDrop (fileDropped)="dragAndDropUpload($event)"
         [acceptFileType]="fileType" [disabled]="disabled">
         <p class="gray-2 subtitle-1">
           <ion-icon name="cloud-upload-outline"></ion-icon> Drag and drop file here or
-          <ion-button size="small" class="upload-button" shape="round" (click)="uploadFile()" [disabled]="disabled">UPLOAD FILE</ion-button>
+          <ion-button size="small" class="upload-button" shape="round" tabindex="0" (click)="uploadFile($event)" (keydown)="uploadFile($event)" [disabled]="disabled">UPLOAD FILE</ion-button>
         </p>
       </div>
       <div *ngIf="isDroped" class="upload-progress">
@@ -40,7 +40,7 @@
                     <p class="black subtitle-1">{{ uploadingFile.fileName }}</p>
                   </ion-col>
                   <ion-col size="1" class="cancel-btn-container">
-                    <ion-button size="small" fill="clear" class="cancel-btn" (click)="cancelFileUpload()">
+                    <ion-button size="small" fill="clear" class="cancel-btn" tabindex="0" (click)="cancelFileUpload($event)" (keydown)="cancelFileUpload($event)">
                       <ion-icon slot="icon-only" name="close-outline"></ion-icon>
                     </ion-button>
                   </ion-col>
