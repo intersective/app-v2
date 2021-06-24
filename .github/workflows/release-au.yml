@@ -91,6 +91,7 @@ jobs:
           
           ${{ secrets.P1_AU_APP_V2_PROD_ENV }}
           export CUSTOM_GRAPH_QL=https://core-graphql-api.au.practera.com/
+          export CUSTOMPLAIN_SKIPGLOBALLOGINFLAG=true
           sed -i "s/<CUSTOM_PIWIK_ENVIRONEMENT>/$CUSTOM_PIWIK_ENVIRONEMENT/" src/index.html
           sed -i "s/<SHA256_KEYSTORE_CERT_FINGERPRINTS>/$SHA256_KEYSTORE_CERT_FINGERPRINTS/" src/well-known/assetlinks.json
           chmod +x env.sh && ./env.sh
