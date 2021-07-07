@@ -82,7 +82,13 @@ export class EventListService {
         type: 'activity_session'
       };
     }
-    return this.request.get(api.get.events, {params: params})
+    return this.request.postGraphQL(
+      `"{` +
+        `events{` +
+          `id name title description isBook type canBook singleBooking location remainingCapacity` +
+          `eventEnd eventStart activityId` +
+        `}` +
+      `}"`)
       .pipe(map(response => {
         return this.normaliseEvents(response.data);
       })
