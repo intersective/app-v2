@@ -113,13 +113,14 @@ describe('EventListService', () => {
       let tmpRes;
       let tmpExpected;
       let errMsg;
+      const type = 'activity_session';
       beforeEach(() => {
         tmpRes = JSON.parse(JSON.stringify(requestResponse));
         tmpExpected = JSON.parse(JSON.stringify(expected));
       });
       afterEach(() => {
         requestSpy.get.and.returnValue(of(tmpRes));
-        service.getEvents().subscribe();
+        service.getEvents(type).subscribe();
         expect(requestSpy.apiResponseFormatError.calls.count()).toBe(1);
         expect(requestSpy.apiResponseFormatError.calls.first().args[0]).toEqual(errMsg);
       });

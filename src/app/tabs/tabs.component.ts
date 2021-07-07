@@ -109,7 +109,7 @@ export class TabsComponent extends RouterEnter {
       this.showEvents = true;
     } else {
       this.showEvents = false;
-      this.eventsService.getEvents().subscribe(events => {
+      this.eventsService.getEvents('activity_session', null).subscribe(events => {
         this.showEvents = !this.utils.isEmpty(events);
       });
     }
